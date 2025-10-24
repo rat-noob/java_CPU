@@ -6,13 +6,7 @@ import org.example.CPU.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-//        Command init1= new Command(TypeCommand.init,10,20);
-//        Command init2= new Command(TypeCommand.init,11,25);
-//        Command ld1  = new Command(TypeCommand.ld,'a',10);
-//        Command ld2  = new Command(TypeCommand.ld,'b',11);
-//        Command add1 = new Command(TypeCommand.add);
-//        Command mv = new Command(TypeCommand.mv,'d','a');
-//        Command print = new Command(TypeCommand.print);
+
 
         Command[] prog={
                 new Command("init 10 20"),
@@ -26,22 +20,17 @@ public class Main {
         };
 
 
-        Command init1= new Command("init 10 20");
-        Command init2= new Command("init 11 25");
-        Command ld1  = new Command("ld 10 a");
-        Command ld2  = new Command("ld 11 b");
-        Command add1 = new Command("add");
-        Command mv = new Command("mv d a");
-        Command print = new Command("print");
+//        Command init1= new Command("init 10 20");
+//        Command init2= new Command("init 11 25");
+//        Command ld1  = new Command("ld 10 a");
+//        Command ld2  = new Command("ld 11 b");
+//        Command add1 = new Command("add");
+//        Command mv = new Command("mv d a");
+//        Command print = new Command("print");
 
-
-
-//        Command mult = new Command(TypeCommand.mult);
-//        Command print = new Command(TypeCommand.print);
-//        Command add = new Command(TypeCommand.add);
-//        Command div = new Command(TypeCommand.div);
 
         ICPU cpu = BCPU.build();
+        Executer exec = new Executer(cpu);
 //        try {
 //            cpu.runCommand(init1);
 //            cpu.runCommand(init2);
@@ -54,7 +43,8 @@ public class Main {
 //            System.out.println(e.getMessage());
 //        }
         try {
-            cpu.runCommand(prog);
+//            cpu.runCommand(prog);
+            exec.run(prog);
         }catch (CPUExceptions e){
             System.out.println(e.getMessage());
         }

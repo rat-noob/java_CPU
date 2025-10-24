@@ -12,11 +12,11 @@ class CPU implements ICPU{
         handler.runCommand(command, this);
     }
 
-    public void runCommand(Command[] commands) throws CPUExceptions {
-        for (int i=0;i< commands.length;i++) {
-            handler.runCommand(commands[i], this);
-        }
-    }
+//    public void runCommand(Command[] commands) throws CPUExceptions {
+//        for (int i=0;i< commands.length;i++) {
+//            handler.runCommand(commands[i], this);
+//        }
+//    }
 
     public MyHandler getHandler() {
         return handler;
