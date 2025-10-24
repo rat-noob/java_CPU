@@ -76,7 +76,15 @@ public class Command {
         return command;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Command{" +
+                "command=" + command +
+                ", val1=" + val1 +
+                ", val2=" + val2 +
+                ", r1='" + r1 + '\'' +
+                ", r2='" + r2 + '\'' +
+                '}';
+    }
 }
 
