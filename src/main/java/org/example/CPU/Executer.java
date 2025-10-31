@@ -10,4 +10,8 @@ public class Executer {
             cpu.runCommand(prog[i]);
         }
     }
+
+    public void run(Program prog) throws CPUExceptions {
+        for(Command c: prog) cpu.runCommand(c);
+    }
 }

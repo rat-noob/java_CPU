@@ -18,6 +18,17 @@ public class Main {
                 new Command("print")
 
         };
+        Program progr= new Program();
+
+        progr.add(new Command("init 10 20"));
+        progr.add(new Command("init 11 25"));
+        progr.add(new Command("ld 10 a"));
+        progr.add(new Command("ld 11 b"));
+        progr.add(new Command("add"));
+        progr.add(new Command("mv d a"));
+        progr.add(new Command("print"));
+
+        for(Command command: progr) System.out.println(command);
 
 
         ICPU cpu = BCPU.build();
@@ -25,7 +36,7 @@ public class Main {
 //
         try {
 //
-            exec.run(prog);
+            exec.run(progr);
         }catch (CPUExceptions e){
             System.out.println(e.getMessage());
         }
