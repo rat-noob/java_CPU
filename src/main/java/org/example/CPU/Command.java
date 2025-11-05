@@ -18,6 +18,15 @@ public class Command {
 
         this.command = command;
     }
+
+//    public Command(Command com){
+//        this.command = com.command;
+//        this.r1 = com.r1;
+//        this.r2= com.r2;
+//        this.val1= com.val1;
+//        this.val2= com.val2;
+//    }
+
     public static boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
