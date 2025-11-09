@@ -21,9 +21,10 @@ public class Main {
         Program progr = new Program();
 
         progr.add(new Command("init 10 20"));
-        progr.add(new Command("init 11 25"));
+        progr.add(new Command("init 0 25"));
         progr.add(new Command("ld 10 a"));
-        progr.add(new Command("ld 11 b"));
+        progr.add(new Command("ld 0 b"));
+        progr.add(new Command("ld 0 c"));
         progr.add(new Command("add"));
         progr.add(new Command("mv d a"));
         progr.add(new Command("print"));
@@ -37,6 +38,10 @@ public class Main {
         try {
 //
             exec.run(progr);
+            progr.most_used_command();
+            progr.addr_range();
+            progr.sorted_com();
+
         }catch (CPUExceptions e){
             System.out.println(e.getMessage());
         }
