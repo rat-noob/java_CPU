@@ -1,4 +1,4 @@
-package org.example.CPU;
+package org.example.cpu_lab_4;
 
 import java.util.*;
 
@@ -7,6 +7,7 @@ public class Program implements Iterable<Command>{
 
  //ВОЗМОЖНО УДАЛЮ ПОТОМ
     ArrayList<Command> comarr;
+    ArrayList<IObserver> io = new ArrayList<>();
     //
 
     HashMap<TypeCommand,Integer> handl= new HashMap<>();
@@ -16,6 +17,9 @@ public class Program implements Iterable<Command>{
      this.comarr = new ArrayList<>();
  }
 
+ public void event(){
+     io.forEach(action->action.event());
+ }
  public void add(Command command){
 
      TypeCommand cm = command.getCommand();
@@ -25,7 +29,20 @@ public class Program implements Iterable<Command>{
      }else{
          handl.put(cm,1);
      }
+     event();
 
+ }
+ public void removeCommand(Command command){
+     TypeCommand cm = command.getCommand();
+     comarr.remove(command);
+     if(handl.containsKey(cm)){
+         handl.put(cm,handl.get(cm)-1);
+     }
+     event();
+ }
+ public void addListener(IObserver observer){
+     io.add(observer);
+     event();
  }
 
     public int getCnt() {
@@ -71,24 +88,6 @@ public class Program implements Iterable<Command>{
 
     }
 
-//    @Override
-//    public Iterator<Command> iterator1() {
-//        return new Iterator<Command>() {
-//            int cr;
-//
-//            @Override
-//            public boolean hasNext() {
-//                return cr<getCnt();
-//            }
-//
-//            @Override
-//            public Command next() {
-//                if(!hasNext()) throw new RuntimeException("err");
-//
-//                return getComm(cr++);
-//            }
-//        };
-//    }
     @Override
     public Iterator<Command> iterator(){
         return  comarr.iterator();

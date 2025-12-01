@@ -1,4 +1,4 @@
-package org.example.CPU;
+package org.example.cpu_lab_4;
 
 public enum TypeCommand {
     ld,
