@@ -6,6 +6,8 @@
 <BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cpu_lab_4.MainFrameController">
    <center>
       <AnchorPane prefHeight="486.0" prefWidth="827.0">
+          <fx:include fx:id="reg" source="RegFrame.fxml" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+          <fx:include fx:id="mem" source="MemFrame.fxml" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="30" />
          <children>
             <ScrollPane prefHeight="486.0" prefWidth="582.0" style="-fx-border-color: black;">
               <content>
@@ -22,6 +24,7 @@
                   </GridPane>
               </content>
             </ScrollPane>
+            <Pane fx:id="panereg" layoutX="582.0" layoutY="2.0" prefHeight="140.0" prefWidth="244.0" />
          </children></AnchorPane>
    </center>
    <bottom>
@@ -29,7 +32,7 @@
          <children>
             <Button layoutX="10.0" layoutY="15.0" mnemonicParsing="false" onAction="#addCommand" prefHeight="48.0" prefWidth="166.0" text="Добавить команду" />
             <Button layoutX="310.0" layoutY="41.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="168.0" text="Сбросить выполнение" />
-            <Button layoutX="566.0" layoutY="41.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="182.0" text="Выполнить инструкцию" />
+            <Button layoutX="566.0" layoutY="41.0" mnemonicParsing="false" onAction="#runCommand" prefHeight="55.0" prefWidth="182.0" text="Выполнить инструкцию" />
             <TextField fx:id="Fcom" layoutX="10.0" layoutY="69.0" prefHeight="25.0" prefWidth="167.0" />
          </children>
       </Pane>

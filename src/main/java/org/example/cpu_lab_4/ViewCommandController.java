@@ -13,11 +13,12 @@ public class ViewCommandController {
     @FXML
     Label lpar2;
 
-    Program prog = new Program();
+    Program prog;
     Command cm;
 
-    public void setCommand(Command c){
+    public void setCommand(Command c,Program program){
         this.cm = c;
+        this.prog=program;
 
         switch (cm.command){
             case mv -> {

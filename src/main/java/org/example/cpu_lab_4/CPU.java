@@ -1,6 +1,6 @@
 package org.example.cpu_lab_4;
 
-class CPU implements ICPU{
+public class CPU implements ICPU{
     int r1=0;
     int r2=0;
     int r3=0;
@@ -31,5 +31,21 @@ class CPU implements ICPU{
 
     public void setR4(int r4) {
         this.r4 = r4;
+    }
+
+    public int getR1() {
+        return r1;
+    }
+
+    public int getR2() {
+        return r2;
+    }
+
+    public int getR3() {
+        return r3;
+    }
+
+    public int getR4() {
+        return r4;
     }
 }

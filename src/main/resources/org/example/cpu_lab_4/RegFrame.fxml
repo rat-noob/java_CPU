@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="130.0" maxWidth="230.0" minHeight="130.0" minWidth="230.0" prefHeight="130.0" prefWidth="230.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.cpu_lab_4.RegFrameController">
+   <children>
+      <Label layoutX="105.0" layoutY="14.0" text="Регистры" />
+      <Label layoutX="35.0" layoutY="43.0" text="A" />
+      <Label layoutX="92.0" layoutY="43.0" text="B" />
+      <Label layoutX="142.0" layoutY="43.0" text="C" />
+      <Label layoutX="188.0" layoutY="43.0" text="D" />
+      <Label fx:id="lrega" layoutX="25.0" layoutY="81.0" text="Label" />
+      <Label fx:id="lregb" layoutX="78.0" layoutY="81.0" text="Label" />
+      <Label fx:id="lregc" layoutX="132.0" layoutY="81.0" text="Label" />
+      <Label fx:id="lregd" layoutX="179.0" layoutY="81.0" text="Label" />
+   </children>
+</AnchorPane>

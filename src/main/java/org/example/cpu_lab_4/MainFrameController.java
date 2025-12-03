@@ -11,12 +11,22 @@ import java.io.IOException;
 public class MainFrameController implements IObserver{
 
     Program pr = new Program();
-
+//    ICPU cpu = BCPU.build();
+    CPU cpu = new CPU();
+    Executer exec = new Executer(cpu);
+    Memory m = new Memory();
+    int index=0;
     @FXML
     GridPane allcommands;
 
     @FXML
     TextField Fcom;
+    @FXML
+    Pane panereg;
+    @FXML
+    private RegFrameController regController;
+    @FXML
+    private MemFrameController memController;
 
     @FXML
     void addCommand(){
@@ -24,8 +34,21 @@ public class MainFrameController implements IObserver{
         pr.add(c);
     }
     @FXML
+    void runCommand() throws CPUExceptions {
+        cpu.runCommand(pr.getComm(index));
+
+        index++;
+        regController.setregs(cpu);
+
+    }
+    @FXML
     void initialize(){
         pr.addListener(this);
+        cpu.setR1(0);
+        cpu.setR2(0);
+        cpu.setR3(0);
+        cpu.setR4(0);
+        regController.setregs(cpu);
     }
 
     @Override
@@ -39,7 +62,7 @@ public class MainFrameController implements IObserver{
             fxmlLoader.setController(cc);
             try{
                 Pane pane = fxmlLoader.load();
-                cc.setCommand(c);
+                cc.setCommand(c,pr);
                 allcommands.addColumn(0,pane);
 
             } catch (IOException e) {

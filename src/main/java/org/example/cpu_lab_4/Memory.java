@@ -1,7 +1,7 @@
 package org.example.cpu_lab_4;
 
 public class Memory {
-    int[] mem = new int[1024];
+    int[] mem = new int[50];
     public void stMem(int r1 ,int ind){
         mem[ind]= r1;
     }
