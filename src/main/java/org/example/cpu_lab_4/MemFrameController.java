@@ -12,7 +12,6 @@ public class MemFrameController {
     private Label[][] memoryCells = new Label[10][5];
     @FXML
      void initialize() {
-        // Заполняем GridPane метками
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 5; col++) {
                 Label label = new Label("0");

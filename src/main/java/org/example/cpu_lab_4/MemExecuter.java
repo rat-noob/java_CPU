@@ -1,25 +1,25 @@
 package org.example.cpu_lab_4;
 
 public class MemExecuter extends MyHandler{
-    Memory memory = new Memory();
+//    Memory memory = new Memory();
     @Override
-    void runCommand(Command command, CPU cpu) throws CPUExceptions {
+    void runCommand(Command command, CPU cpu,Memory memory) throws CPUExceptions {
         switch(command.getCommand()){
             case ld -> {//если все сломается, то поменять везде в ld command.r2 на command.r1
-                if(command.r2.equals("a")) {
+                if(command.r1.equals("a")) {
                     memory.ldMem(command.val1, cpu.r1);
-                    cpu.r1 = memory.Getval(command.val1);
+                    cpu.r1 = memory.Getval(command.val2);
                 }
-                else if(command.r2.equals("b")){
+                else if(command.r1.equals("b")){
                     memory.ldMem(command.val1,cpu.r2);
-                cpu.r2 = memory.Getval(command.val1);}
-                else if(command.r2.equals("c")){
+                cpu.r2 = memory.Getval(command.val2);}
+                else if(command.r1.equals("c")){
                     memory.ldMem(command.val1,cpu.r3);
-                cpu.r3 = memory.Getval(command.val1);}
+                cpu.r3 = memory.Getval(command.val2);}
 
-                else if(command.r2.equals("d")) {
+                else if(command.r1.equals("d")) {
                     memory.ldMem(command.val1, cpu.r4);
-                    cpu.r4 = memory.Getval(command.val1);
+                    cpu.r4 = memory.Getval(command.val2);
                 }
             }
             case st -> {
@@ -69,7 +69,7 @@ public class MemExecuter extends MyHandler{
                         cpu.r4=cpu.r1;
                 }
             }
-            default -> super.runCommand(command, cpu);
+            default -> super.runCommand(command, cpu,memory);
         }
 
     }

@@ -12,9 +12,10 @@ public class MainFrameController implements IObserver{
 
     Program pr = new Program();
 //    ICPU cpu = BCPU.build();
+Memory m = new Memory();
     CPU cpu = new CPU();
     Executer exec = new Executer(cpu);
-    Memory m = new Memory();
+
     int index=0;
     @FXML
     GridPane allcommands;
@@ -35,20 +36,24 @@ public class MainFrameController implements IObserver{
     }
     @FXML
     void runCommand() throws CPUExceptions {
+        cpu.getHandler().add(new AExecuter()).add(new MemExecuter()).add(new HExecuter());
         cpu.runCommand(pr.getComm(index));
 
         index++;
         regController.setregs(cpu);
+        memController.updateMemory(cpu.memory);
 
     }
     @FXML
     void initialize(){
         pr.addListener(this);
-        cpu.setR1(0);
-        cpu.setR2(0);
-        cpu.setR3(0);
-        cpu.setR4(0);
-        regController.setregs(cpu);
+        cpu.setMemory(m);
+//        cpu.setR1(0);
+//        cpu.setR2(0);
+//        cpu.setR3(0);
+//        cpu.setR4(0);
+//        regController.setregs(cpu);
+//        memController.updateMemory(cpu.memory);
     }
 
     @Override

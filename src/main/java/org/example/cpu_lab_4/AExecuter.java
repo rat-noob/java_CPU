@@ -2,7 +2,7 @@ package org.example.cpu_lab_4;
 
 public class AExecuter extends MyHandler{
     @Override
-    void runCommand(Command command, CPU cpu) throws CPUExceptions {
+    void runCommand(Command command, CPU cpu,Memory memory) throws CPUExceptions {
         switch (command.getCommand()){
             case mult -> {
                 cpu.r3 = cpu.r1 * cpu.r2;
@@ -17,7 +17,7 @@ public class AExecuter extends MyHandler{
                 cpu.r3 = cpu.r1 - cpu.r2;
             }
             default -> {
-                super.runCommand(command, cpu);
+                super.runCommand(command, cpu,memory);
             }
         }
 

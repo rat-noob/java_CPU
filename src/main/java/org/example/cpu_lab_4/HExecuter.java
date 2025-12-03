@@ -2,7 +2,7 @@ package org.example.cpu_lab_4;
 
 public class HExecuter extends MyHandler{
     @Override
-    void runCommand(Command command, CPU cpu) throws CPUExceptions{
+    void runCommand(Command command, CPU cpu,Memory memory) throws CPUExceptions{
         if(command.getCommand()==TypeCommand.print){
             System.out.println(cpu.r1);
             System.out.println(cpu.r2);
@@ -11,7 +11,7 @@ public class HExecuter extends MyHandler{
         }
 
         else{
-            super.runCommand(command,cpu);
+            super.runCommand(command,cpu,memory);
         }
     }
 }

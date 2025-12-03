@@ -24,9 +24,9 @@ public class RegFrameController {
 //        proc.setR3(r3);
 //        proc.setR4(r4);
 
-        lrega.setText(Integer.toString(cp.getR1()));
-        lregb.setText(Integer.toString(cp.getR2()));
-        lregc.setText(Integer.toString(cp.getR3()));
-        lregd.setText(Integer.toString(cp.getR4()));
+        lrega.setText(Integer.toString(proc.r1));
+        lregb.setText(Integer.toString(proc.r2));
+        lregc.setText(Integer.toString(proc.r3));
+        lregd.setText(Integer.toString(proc.r4));
     }
 }

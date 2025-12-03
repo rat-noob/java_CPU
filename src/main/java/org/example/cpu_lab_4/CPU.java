@@ -6,10 +6,11 @@ public class CPU implements ICPU{
     int r3=0;
     int r4=0;
     MyHandler handler = new MyHandler();
+    Memory memory;
 
     @Override
     public void runCommand(Command command) throws CPUExceptions {
-        handler.runCommand(command, this);
+        handler.runCommand(command, this,memory);
     }
 
 
@@ -47,5 +48,9 @@ public class CPU implements ICPU{
 
     public int getR4() {
         return r4;
+    }
+
+    public void setMemory(Memory memory) {
+        this.memory = memory;
     }
 }
