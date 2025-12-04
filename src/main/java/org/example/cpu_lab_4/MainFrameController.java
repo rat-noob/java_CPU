@@ -2,11 +2,13 @@ package org.example.cpu_lab_4;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MainFrameController implements IObserver{
 
@@ -21,6 +23,25 @@ Memory m = new Memory();
     GridPane allcommands;
 
     @FXML
+    Label cm1;
+    @FXML
+    Label cm2;
+    @FXML
+    Label cm3;
+    @FXML
+    Label cm4;
+
+    @FXML
+    Label cnt1;
+    @FXML
+    Label cnt2;
+    @FXML
+    Label cnt3;
+    @FXML
+    Label cnt4;
+
+
+    @FXML
     TextField Fcom;
     @FXML
     Pane panereg;
@@ -33,6 +54,7 @@ Memory m = new Memory();
     void addCommand(){
         Command c = new Command(Fcom.getText());
         pr.add(c);
+        stat();
     }
     @FXML
     void runCommand() throws CPUExceptions {
@@ -56,6 +78,17 @@ Memory m = new Memory();
 //        memController.updateMemory(cpu.memory);
     }
 
+    public void stat(){
+        List<TypeCommand> result = pr.sorted_com();
+        cm1.setText(result.get(0).toString());
+        cnt1.setText(String.valueOf(pr.handl.get(result.get(1))));
+        cm2.setText(result.get(1).toString());
+        cnt2.setText(String.valueOf(pr.handl.get(result.get(2))));
+        cm3.setText(result.get(2).toString());
+        cnt3.setText(String.valueOf(pr.handl.get(result.get(3))));
+        cm4.setText(result.get(3).toString());
+        cnt4.setText(String.valueOf(pr.handl.get(result.get(4))));
+    }
     @Override
     public void event() {
         allcommands.getChildren().clear();

@@ -8,7 +8,15 @@
       <AnchorPane prefHeight="486.0" prefWidth="827.0">
           <fx:include fx:id="reg" source="RegFrame.fxml" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
           <fx:include fx:id="mem" source="MemFrame.fxml" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="30" />
-         <Label layoutX="640.0" layoutY="390.0" text="Частота появления инструкций" />
+         <Label layoutX="627.0" layoutY="395.0" text="Частота появления инструкций" />
+         <Label fx:id="cm1" layoutX="613.0" layoutY="412.0" text="init" />
+         <Label fx:id="cm2" layoutX="613.0" layoutY="429.0" text="ld" />
+         <Label fx:id="cm3" layoutX="613.0" layoutY="446.0" text="add" />
+         <Label fx:id="cm4" layoutX="613.0" layoutY="464.0" text="mv" />
+         <Label fx:id="cnt1" layoutX="714.0" layoutY="412.0" text="0" />
+         <Label fx:id="cnt2" layoutX="714.0" layoutY="429.0" text="0" />
+         <Label fx:id="cnt3" layoutX="714.0" layoutY="446.0" text="0" />
+         <Label fx:id="cnt4" layoutX="714.0" layoutY="464.0" text="0" />
          <children>
             <ScrollPane prefHeight="486.0" prefWidth="582.0" style="-fx-border-color: black;">
               <content>

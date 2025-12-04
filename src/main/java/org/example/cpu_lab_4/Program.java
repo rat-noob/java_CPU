@@ -1,6 +1,7 @@
 package org.example.cpu_lab_4;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Program implements Iterable<Command>{
  int cnt = 0;
@@ -80,12 +81,16 @@ public class Program implements Iterable<Command>{
 
     }
 
-    public void sorted_com() {
+    public List<TypeCommand> sorted_com() {
         List<TypeCommand> result = new ArrayList<>(handl.keySet());
         result.sort((t1, t2) -> handl.get(t2) - handl.get(t1));
 
         System.out.println(result);
 
+//        List<Map.Entry<TypeCommand, Integer>> sortedAsc = handl.entrySet().stream()
+//                .sorted(Map.Entry.comparingByValue())
+//                .collect(Collectors.toList());
+        return result;
     }
 
     @Override
