@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Program implements Iterable<Command>{
- int cnt = 0;
+
 
  //ВОЗМОЖНО УДАЛЮ ПОТОМ
     ArrayList<Command> comarr;

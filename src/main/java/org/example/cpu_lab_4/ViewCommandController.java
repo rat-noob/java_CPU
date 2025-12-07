@@ -3,6 +3,8 @@ package org.example.cpu_lab_4;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.util.Collections;
+
 public class ViewCommandController {
     @FXML
     Label lcommand;
@@ -42,6 +44,18 @@ public class ViewCommandController {
         }
     }
     @FXML
+    public void moveup(){
+        int index= prog.comarr.indexOf(cm);
+        Collections.swap(prog.comarr,index,index-1);
+        prog.event();
+    }
+    @FXML
+    public void movedown(){
+        int index= prog.comarr.indexOf(cm);
+        Collections.swap(prog.comarr,index,index+1);
+        prog.event();
+    }
+    @FXML
     public void removeCommand(Command c1){
         prog.removeCommand(c1);
     }
@@ -50,5 +64,9 @@ public class ViewCommandController {
     public void del(){
         prog.removeCommand(cm);
 
+    }
+    @FXML
+    public void highlightLabel() {
+            lcommand.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
     }
 }

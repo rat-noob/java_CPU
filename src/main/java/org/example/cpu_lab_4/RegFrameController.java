@@ -17,6 +17,13 @@ public class RegFrameController {
     Label lregd;
 
     CPU cp;
+    @FXML
+    void initialize(){
+        lrega.setText(Integer.toString(0));
+        lregb.setText(Integer.toString(0));
+        lregc.setText(Integer.toString(0));
+        lregd.setText(Integer.toString(0));
+    }
     public void setregs(CPU proc){
         this.cp = proc;
 //        proc.setR1(r1);

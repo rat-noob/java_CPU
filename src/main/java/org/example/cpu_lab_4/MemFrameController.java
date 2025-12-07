@@ -27,6 +27,13 @@ public class MemFrameController {
     public void updateMemoryValue(int row, int col, String value) {
             memoryCells[row][col].setText(value);
     }
+    public void resetMemory(){
+        for (int row=0;row<10;row++){
+            for(int col=0;col<5;col++){
+                memoryCells[row][col].setText(Integer.toString(0));
+            }
+        }
+    }
     public void updateMemory(Memory memory){
         for(int row=0; row<10;row++){
             for (int col = 0; col<5;col++){

@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class MainFrameController implements IObserver{
-
+    ViewCommandController c1;
     Program pr = new Program();
 //    ICPU cpu = BCPU.build();
 Memory m = new Memory();
@@ -19,6 +19,7 @@ Memory m = new Memory();
     Executer exec = new Executer(cpu);
 
     int index=0;
+    int curindex=-1;
     @FXML
     GridPane allcommands;
 
@@ -58,17 +59,23 @@ Memory m = new Memory();
     }
     @FXML
     void runCommand() throws CPUExceptions {
-        cpu.getHandler().add(new AExecuter()).add(new MemExecuter()).add(new HExecuter());
+
         cpu.runCommand(pr.getComm(index));
 
-        index++;
+
         regController.setregs(cpu);
         memController.updateMemory(cpu.memory);
+//        c1.highlightLabel();
+        curindex++;
+//        event();
+        index++;
+
 
     }
     @FXML
     void initialize(){
         pr.addListener(this);
+        cpu.getHandler().add(new AExecuter()).add(new MemExecuter()).add(new HExecuter());
         cpu.setMemory(m);
 //        cpu.setR1(0);
 //        cpu.setR2(0);
@@ -81,18 +88,39 @@ Memory m = new Memory();
     public void stat(){
         List<TypeCommand> result = pr.sorted_com();
         cm1.setText(result.get(0).toString());
-        cnt1.setText(String.valueOf(pr.handl.get(result.get(1))));
-        cm2.setText(result.get(1).toString());
-        cnt2.setText(String.valueOf(pr.handl.get(result.get(2))));
-        cm3.setText(result.get(2).toString());
-        cnt3.setText(String.valueOf(pr.handl.get(result.get(3))));
-        cm4.setText(result.get(3).toString());
-        cnt4.setText(String.valueOf(pr.handl.get(result.get(4))));
+        cnt1.setText(String.valueOf(pr.handl.get(result.get(0))));
+        if(pr.handl.size()>1){
+            cm2.setText(result.get(1).toString());
+            cnt2.setText(String.valueOf(pr.handl.get(result.get(1))));
+            if(pr.handl.size()>2){
+                cm3.setText(result.get(2).toString());
+                cnt3.setText(String.valueOf(pr.handl.get(result.get(2))));
+                if(pr.handl.size()>3){
+                    cm4.setText(result.get(3).toString());
+                    cnt4.setText(String.valueOf(pr.handl.get(result.get(3))));
+                }
+            }
+        }
+
+
+
+
     }
+    @FXML
+    public void reset(){
+        cpu.setR1(0);
+        cpu.setR2(0);
+        cpu.setR3(0);
+        cpu.setR4(0);
+        regController.setregs(cpu);
+        memController.resetMemory();
+        index=0;
+
+    }
+
     @Override
     public void event() {
         allcommands.getChildren().clear();
-
         for(Command c: pr){
             ViewCommandController cc = new ViewCommandController();
             FXMLLoader fxmlLoader = new FXMLLoader(
@@ -100,8 +128,15 @@ Memory m = new Memory();
             fxmlLoader.setController(cc);
             try{
                 Pane pane = fxmlLoader.load();
+//                if(curindex==index){
+////                    cc.highlightLabel();
+////                    curindex++;
+//                    c1=cc;
+//                }
+
                 cc.setCommand(c,pr);
                 allcommands.addColumn(0,pane);
+
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

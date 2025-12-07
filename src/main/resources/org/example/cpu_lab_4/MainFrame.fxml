@@ -40,7 +40,7 @@
       <Pane prefHeight="129.0" prefWidth="827.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="10.0" layoutY="15.0" mnemonicParsing="false" onAction="#addCommand" prefHeight="48.0" prefWidth="166.0" text="Добавить команду" />
-            <Button layoutX="310.0" layoutY="41.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="168.0" text="Сбросить выполнение" />
+            <Button layoutX="310.0" layoutY="41.0" mnemonicParsing="false" onAction="#reset" prefHeight="53.0" prefWidth="168.0" text="Сбросить выполнение" />
             <Button layoutX="566.0" layoutY="41.0" mnemonicParsing="false" onAction="#runCommand" prefHeight="55.0" prefWidth="182.0" text="Выполнить инструкцию" />
             <TextField fx:id="Fcom" layoutX="10.0" layoutY="69.0" prefHeight="25.0" prefWidth="167.0" />
          </children>
