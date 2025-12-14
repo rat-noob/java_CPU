@@ -6,7 +6,7 @@
     <session-factory>
         <!-- Подключение к базе -->
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.connection.url">jdbc:sqlite:h_allmarks.db</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:h_allcommands.db</property>
         <property name="hibernate.current_session_context_class">thread</property>
 
         <!-- Диалект SQLite -->

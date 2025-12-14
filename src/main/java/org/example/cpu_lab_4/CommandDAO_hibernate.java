@@ -11,21 +11,7 @@ public class CommandDAO_hibernate extends CommandDAO{
     Session session = null;
     Transaction transaction = null;
 
-//    void connect(){
-//        try {
-//            Class.forName("org.sqlite.JDBC");
-//
-//            c = DriverManager.getConnection(
-//                    "jdbc:sqlite:all_commands.db");
-//            System.out.println("Opened database successfully");
-//
-//
-//        } catch (ClassNotFoundException ex) {
-//            System.out.println("не найден драйвер");
-//        } catch (SQLException ex) {
-//            System.out.println("не удалось подключиться к СУБД");
-//        }
-//    }
+
     @Override
     public int size() {
         return super.size();
@@ -46,8 +32,6 @@ public class CommandDAO_hibernate extends CommandDAO{
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void remove(Command command) {
@@ -80,10 +64,6 @@ public class CommandDAO_hibernate extends CommandDAO{
 
         return all_Commands;
     }
-
-//    public CommanDAO_JDBC() {
-//        connect();
-//    }
 
     @Override
     public Command get(int index) {
