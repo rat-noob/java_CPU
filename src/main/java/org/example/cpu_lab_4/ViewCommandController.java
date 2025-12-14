@@ -45,14 +45,14 @@ public class ViewCommandController {
     }
     @FXML
     public void moveup(){
-        int index= prog.comarr.indexOf(cm);
-        Collections.swap(prog.comarr,index,index-1);
+        int index= prog.commandDAO.getComarr().indexOf(cm);
+        Collections.swap(prog.commandDAO.comarr,index,index-1);
         prog.event();
     }
     @FXML
     public void movedown(){
-        int index= prog.comarr.indexOf(cm);
-        Collections.swap(prog.comarr,index,index+1);
+        int index= prog.commandDAO.getComarr().indexOf(cm);
+        Collections.swap(prog.commandDAO.getComarr(),index,index+1);
         prog.event();
     }
     @FXML

@@ -7,16 +7,19 @@ public class Program implements Iterable<Command>{
 
 
  //ВОЗМОЖНО УДАЛЮ ПОТОМ
-    ArrayList<Command> comarr;
+//    ArrayList<Command> comarr = new ArrayList<>();
+//    CommandDAO commandDAO = new CommandDAO();
+//    CommandDAO commandDAO = new CommanDAO_JDBC();
+    CommandDAO commandDAO = new CommandDAO_hibernate();
     ArrayList<IObserver> io = new ArrayList<>();
     //
 
     HashMap<TypeCommand,Integer> handl= new HashMap<>();
 
 
- public Program(){
-     this.comarr = new ArrayList<>();
- }
+// public Program(){
+//     this.comarr = new ArrayList<>();
+// }
 
  public void event(){
      io.forEach(action->action.event());
@@ -24,7 +27,7 @@ public class Program implements Iterable<Command>{
  public void add(Command command){
 
      TypeCommand cm = command.getCommand();
-     comarr.add(command);
+     commandDAO.add(command);
      if(handl.containsKey(cm)){
          handl.put(cm,handl.get(cm)+1);
      }else{
@@ -35,7 +38,7 @@ public class Program implements Iterable<Command>{
  }
  public void removeCommand(Command command){
      TypeCommand cm = command.getCommand();
-     comarr.remove(command);
+     commandDAO.remove(command);
      if(handl.containsKey(cm)){
          handl.put(cm,handl.get(cm)-1);
      }
@@ -47,11 +50,11 @@ public class Program implements Iterable<Command>{
  }
 
     public int getCnt() {
-     return comarr.size();
+     return commandDAO.size();
     }
 
     public Command getComm(int index) {
-        return comarr.get(index);
+        return commandDAO.get(index);
     }
 
     public void most_used_command(){
@@ -68,10 +71,10 @@ public class Program implements Iterable<Command>{
     }
 
     public void addr_range(){
-        int min = comarr.get(0).val1;
-        int max = comarr.get(0).val1;
+        int min = commandDAO.get(0).val1;
+        int max = commandDAO.get(0).val1;
 
-        for (Command cmd : comarr) {
+        for (Command cmd : commandDAO.getComarr()) {
             int addr = cmd.val1;
             if (addr < min) min = addr;
             if (addr > max) max = addr;
@@ -95,6 +98,6 @@ public class Program implements Iterable<Command>{
 
     @Override
     public Iterator<Command> iterator(){
-        return  comarr.iterator();
+        return  commandDAO.getComarr().iterator();
     }
 }
